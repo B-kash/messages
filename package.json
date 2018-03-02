@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/B-kash/messages/issues"
   },
-  "homepage": "https://github.com/B-kash/messages#readme"
+  "homepage": "https://github.com/B-kash/messages#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
