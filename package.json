@@ -1,0 +1,24 @@
+{
+  "name": "messages",
+  "version": "1.0.0",
+  "description": "Message api for my resume",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-kash/messages.git"
+  },
+  "keywords": [
+    "Node",
+    "message",
+    "api"
+  ],
+  "author": "B-kash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/B-kash/messages/issues"
+  },
+  "homepage": "https://github.com/B-kash/messages#readme"
+}
