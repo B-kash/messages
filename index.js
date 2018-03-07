@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const service = require('./app/services/service');
 const loggingService = require('./app/services/loggingService');
+const PORT = process.env.PORT || 3000;
 
 const  Suggestion = require('./app/models/Suggestion');
-console.log("Hello app started on 3000 port");
+
 let app = express();
 
 app.use( function (req, res,next) {
@@ -32,4 +33,6 @@ app.post('/messages', (req, res) => {
 	let suggestion = new Suggestion(req.body);
 	res.send(service.postSuggestion(suggestion));
 });
-app.listen(3000);
+app.listen(PORT,()=>{
+    console.log("Application started on "+PORT);
+});
