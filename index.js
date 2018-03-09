@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use( function (req, res,next) {
 	// console.log(req);
 	console.log(req.headers.origin);
-	if(req.headers.origin == 'https://b-kash.github.io/'){
+	if(req.headers.origin == 'https://b-kash.github.io'){
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader('Access-Control-Allow-Methods', '*');
         res.setHeader("Access-Control-Allow-Headers", "*");
