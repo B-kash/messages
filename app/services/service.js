@@ -26,4 +26,4 @@ function getSuggestions() {
 module.exports = {
     postSuggestion,
     getSuggestions
-}
+};

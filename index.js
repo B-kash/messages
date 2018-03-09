@@ -7,19 +7,26 @@ const PORT = process.env.PORT || 3000;
 const  Suggestion = require('./app/models/Suggestion');
 
 let app = express();
-
-app.use( function (req, res,next) {
-	console.log("at my own middleware");
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader("Access-Control-Allow-Headers", "*");
-    next();
-    // res.end();
-});
-// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use( function (req, res,next) {
+	// console.log(req);
+	console.log(req.headers.origin);
+	if(req.headers.origin == 'https://b-kash.github.io/'){
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader('Access-Control-Allow-Methods', '*');
+        res.setHeader("Access-Control-Allow-Headers", "*");
+        next();
+    }
+    else{
+        res.status(401);
+        res.send('Unauthorized');
+    }
+
+});
+// app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
     res.send("Welcome");
 });
