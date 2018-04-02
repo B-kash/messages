@@ -7,9 +7,11 @@ const PORT = process.env.PORT || 3000;
 const  Suggestion = require('./app/models/Suggestion');
 
 let app = express();
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 app.use( function (req, res,next) {
 	console.log(req.headers.origin);
 	console.log(req.method);
@@ -52,7 +54,6 @@ app.use( function (req, res,next) {
     // }
 
 });
-// app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
     res.send("Welcome");
@@ -61,7 +62,6 @@ app.get('/messages',(req,res)=>{
 	res.send(service.getSuggestions());
 });
 app.post('/messages', (req, res) => {
-	console.log(req.body);
 	console.log("Entered into post method");
 	console.log(req.body);
 	let suggestion = new Suggestion(req.body);
