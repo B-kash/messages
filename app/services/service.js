@@ -12,7 +12,7 @@ function postSuggestion(suggestion) {
     fs.writeFile(filePath, JSON.stringify(allSuggestions), function(err) {
         if (err) {
 //            return loggingService.error("Service.js ",err);
-            console.log("Err",err);
+            console.log("Err",err );
         }
     });
     return 'success';
