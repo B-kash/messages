@@ -8,6 +8,7 @@ function postSuggestion(suggestion) {
     fs.writeFile("./app/data/message.json", JSON.stringify(allSuggestions), function(err) {
         if (err) {
 //            return loggingService.error("Service.js ",err);
+            console.log("Err",err);
         }
     });
     return 'success';
@@ -19,6 +20,7 @@ function getSuggestions() {
         suggestions= JSON.parse(fs.readFileSync('./app/data/message.json'));
     }catch(err){
 //        loggingService.error("Service.js ",err);
+        console.log("Err",err);
         suggestions = [];
     }
     return suggestions;
