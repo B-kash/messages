@@ -17,7 +17,7 @@ function postSuggestion(suggestion) {
 function getSuggestions() {
     let suggestions =[];
     try{
-        suggestions= JSON.parse(fs.readFileSync('./app/data/message.json'));
+        suggestions= JSON.parse(fs.readFileSync('../data/message.json'));
     }catch(err){
 //        loggingService.error("Service.js ",err);
         console.log("Err",err);
