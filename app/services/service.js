@@ -5,7 +5,7 @@ function postSuggestion(suggestion) {
     let allSuggestions = [];
     allSuggestions = getSuggestions();
     allSuggestions.push((suggestion));
-    fs.writeFile("./app/data/message.json", JSON.stringify(allSuggestions), function(err) {
+    fs.writeFile("../data/message.json", JSON.stringify(allSuggestions), function(err) {
         if (err) {
 //            return loggingService.error("Service.js ",err);
             console.log("Err",err);
