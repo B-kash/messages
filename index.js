@@ -11,25 +11,40 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use( function (req, res,next) {
-	// console.log(req);
 	console.log(req.headers.origin);
 	console.log(req.method);
-	if(req.method == "POST"){
-        if(req.headers.origin == 'https://b-kash.github.io'){
-            res.setHeader("Access-Control-Allow-Origin", "*");
+	if(req.method !="POST"){
+	        res.setHeader("Access-Control-Allow-Origin", "*");
             res.setHeader('Access-Control-Allow-Methods', '*');
             res.setHeader("Access-Control-Allow-Headers", "*");
             next();
-        }else{
-            res.status(401);
-            res.send('Unauthorized');
-        }
 	}else{
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader('Access-Control-Allow-Methods', '*');
-        res.setHeader("Access-Control-Allow-Headers", "*");
-        next();
-    }
+	     if(req.headers.origin == 'https://b-kash.github.io'){
+                    res.setHeader("Access-Control-Allow-Origin", "*");
+                    res.setHeader('Access-Control-Allow-Methods', '*');
+                    res.setHeader("Access-Control-Allow-Headers", "*");
+                    next();
+         }else{
+           res.status(401);
+           res.send('Unauthorized');
+         }
+	}
+//	if(req.method == "POST"){
+//        if(req.headers.origin == 'https://b-kash.github.io'){
+//            res.setHeader("Access-Control-Allow-Origin", "*");
+//            res.setHeader('Access-Control-Allow-Methods', '*');
+//            res.setHeader("Access-Control-Allow-Headers", "*");
+//            next();
+//        }else{
+//            res.status(401);
+//            res.send('Unauthorized');
+//        }
+//	}else{
+//        res.setHeader("Access-Control-Allow-Origin", "*");
+//        res.setHeader('Access-Control-Allow-Methods', '*');
+//        res.setHeader("Access-Control-Allow-Headers", "*");
+//        next();
+//    }
 
     // else{
     //     res.status(401);
