@@ -3,7 +3,7 @@ const loggingService = require('./loggingService');
 const path = require('path');
 
 
-const filePath = path.join(__dirname, 'app', 'data','message.json');
+const filePath = path.join(__dirname, 'data','message.json');
 
 function postSuggestion(suggestion) {
     let allSuggestions = [];
