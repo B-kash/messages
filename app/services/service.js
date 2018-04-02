@@ -5,7 +5,7 @@ function postSuggestion(suggestion) {
     let allSuggestions = [];
     allSuggestions = getSuggestions();
     allSuggestions.push((suggestion));
-    fs.writeFile("../data/message.json", JSON.stringify(allSuggestions), function(err) {
+    fs.writeFile("message.json", JSON.stringify(allSuggestions), function(err) {
         if (err) {
 //            return loggingService.error("Service.js ",err);
             console.log("Err",err);
@@ -17,7 +17,7 @@ function postSuggestion(suggestion) {
 function getSuggestions() {
     let suggestions =[];
     try{
-        suggestions= JSON.parse(fs.readFileSync('../data/message.json'));
+        suggestions= JSON.parse(fs.readFileSync('message.json'));
     }catch(err){
 //        loggingService.error("Service.js ",err);
         console.log("Err",err);
